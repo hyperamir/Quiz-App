@@ -1,8 +1,13 @@
--- Drop and recreate Widgets table (Example)
+-- Drop and recreate quizzes table
 
-DROP TABLE IF EXISTS widgets CASCADE;
-CREATE TABLE widgets (
+DROP TABLE IF EXISTS quizzes CASCADE;
+
+CREATE TABLE quizzes (
   id SERIAL PRIMARY KEY NOT NULL,
-  user_id INTEGER REFERENCES users(id),
-  name VARCHAR(255) NOT NULL
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  name VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP,
+  url VARCHAR (255),
+  category VARCHAR(255),
+  listed BOOLEAN DEFAULT TRUE
 );
