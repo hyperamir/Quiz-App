@@ -10,12 +10,13 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    let query = `SELECT * FROM widgets`;
-    console.log(query);
-    db.query(query)
+    db.query(`SELECT questions.text AS question, answers.text AS answer
+    FROM questions
+    JOIN answers ON questions.id = question_id
+    WHERE questions.id = $1 AND answers.question_id = $2;` , [1,1])
       .then(data => {
-        const widgets = data.rows;
-        res.json({ widgets });
+        console.log(data.rows)
+        res.json(data.rows);
       })
       .catch(err => {
         res
