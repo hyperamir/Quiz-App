@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <%- include('partials/_header') %>
+<h2>create quiz</h2>
+
+<form action="/create" method="POST">
+  <label for="fname">quiz name:</label><br>
+  <input type="text" id="quiz" name="quiz"><br>
+  <label for="lname">category:</label><br>
+  <input type="text" id="category" name="category"><br><br>
+
+  <label for="fname">question:</label><br>
+  <input type="text" id="question" name="question"><br>
+
+  <label for="fname">correct option:</label><br>
+  <input type="text" id="answera" name="answera"><br>
+  <input type="checkbox" id="acorrect" name="answera"><br>
+  <label for="fname">option 2:</label><br>
+  <input type="text" id="answerb" name="answerb"><br>
+  <input type="checkbox" id="bcorrect" name="answerb"><br>
+  <label for="fname">option 3:</label><br>
+  <input type="text" id="answerc" name="answerc"><br>
+  <input type="checkbox" id="ccorect" name="answerc"><br>
+  <label for="fname">option 4:</label><br>
+  <input type="text" id="answerd" name="answerd"><br>
+  <input type="checkbox" id="dcorrect" name="answerd"><br>
+
+  <input type="submit" value="Submit">
+</form>
+
+
+
+</body>
+</html>
+
+
+<!-- (user_id, name, created_at,url, category, listed)  -->
