@@ -6,16 +6,6 @@ module.exports = (db) => {
     res.render('create.ejs');
   });
 
-<<<<<<< HEAD
-
-  router.post('/', (req, res) => {
-    console.log(req.body);
-    console.log(req.params);
-  //   const quiz = req.body.quiz;
-  //   const category = req.body.category;
-  //   const question = req.body.question;
-  //   const answerA =
-=======
   router.post('/:id', (req, res) => {
 
     const userId = req.session.id
@@ -32,7 +22,6 @@ module.exports = (db) => {
       INSERT INTO quizzes (user_id, name, created_at,url, category, listed)
       VALUES ()
     `
->>>>>>> 043d024f17247496860aaefc6057357be885fd9e
   })
 
   return router
