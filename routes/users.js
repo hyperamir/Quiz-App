@@ -12,6 +12,7 @@ module.exports = (db) => {
   router.get("/", (req, res) => {
     db.query(`SELECT * FROM quizzes WHERE listed = true;`)
       .then(data => {
+        console.log(data.rows)
         res.json(data.rows);
       })
       .catch(err => {
