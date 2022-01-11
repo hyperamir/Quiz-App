@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <%- include('partials/_header') %>
+
+<h2> GENERAL QUIZ</h2>
+
+<form action="/fifthquiz" method="POST">
+  <label for="fname">Question 1</label><br><br>
+  <label for="question1"><%= results[0].question %></label><br>
+
+  <input type="radio" id="option1" name="q1option">
+  <label for="fname"><%= results[0].answer %></label><br>
+  <input type="radio" id="option2" name="q1option">
+  <label for="css"><%= results[1].answer %></label><br>
+  <input type="radio" id="option3" name="q1option">
+  <label for="javascript"><%= results[2].answer %></label><br>
+  <input type="radio" id="option4" name="q1option">
+  <label for="javascript"><%= results[3].answer %></label><br><br>
+
+
+
+  <label for="fname">Question 2</label><br><br>
+  <label for="question1"><%= results[4].question %></label><br>
+
+  <input type="radio" id="option1" name="q2option">
+  <label for="fname"><%= results[4].answer %></label><br>
+  <input type="radio" id="option2" name="q2option">
+  <label for="css"><%= results[5].answer %></label><br>
+  <input type="radio" id="option3" name="q2option">
+  <label for="javascript"><%= results[6].answer %></label><br>
+  <input type="radio" id="option4" name="q2option">
+  <label for="javascript"><%= results[7].answer %></label><br><br>
+
+
+
+  <label for="fname">Question 3</label><br><br>
+  <label for="question1"><%= results[8].question %></label><br>
+
+  <input type="radio" id="option1" name="q3option">
+  <label for="fname"><%= results[8].answer %></label><br>
+  <input type="radio" id="option2" name="q3option">
+  <label for="css"><%= results[9].answer %></label><br>
+  <input type="radio" id="option3" name="q3option">
+  <label for="javascript"><%= results[10].answer %></label><br>
+  <input type="radio" id="option4" name="q3option">
+  <label for="javascript"><%= results[11].answer %></label><br><br>
+
+
+  <label for="fname">Question 4</label><br><br>
+  <label for="question1"><%= results[12].question %></label><br>
+
+  <input type="radio" id="option1" name="q4option">
+  <label for="fname"><%= results[12].answer %></label><br>
+  <input type="radio" id="option2" name="q4option">
+  <label for="css"><%= results[13].answer %></label><br>
+  <input type="radio" id="option3" name="q4option">
+  <label for="javascript"><%= results[14].answer %></label><br>
+  <input type="radio" id="option4" name="q4option">
+  <label for="javascript"><%= results[15].answer %></label><br><br>
+
+
+
+
+  <input type="submit" value="Submit">
+</form>
+
+
+</body>
+</html>
+
