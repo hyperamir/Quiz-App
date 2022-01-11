@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-INSERT INTO answers (question_id, text, correct) VALUES (1, 'Soccer', true),
-=======
 INSERT INTO answers (question_id, text, correct)
-VALUES (1, 'soccer', true),
->>>>>>> 043d024f17247496860aaefc6057357be885fd9e
+VALUES (1, 'Soccer', true),
 (1, 'Basketball', false),
 (1, 'Baseball', false),
 (1, 'Hockey', false),
