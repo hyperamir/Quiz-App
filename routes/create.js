@@ -6,20 +6,12 @@ module.exports = (db) => {
     res.render('create.ejs');
   });
 
-<<<<<<< HEAD
-  router.post('/:id', (req, res) => {
-
-    const userId = req.session.id
-    console.log(req.body)
-    const quiz = req.body.quiz;
-=======
   router.post('/', (req, res) => {
 
     const userId = req.session.user_id;
     console.log(userId);
     console.log(req.body);
     const name = req.body.quiz;
->>>>>>> 9e16a1bfaca62b0852830ea93b4b63977d6707f2
     const category = req.body.category;
     const question = req.body.question;
     const correct = req.body.correct;
@@ -27,56 +19,34 @@ module.exports = (db) => {
     const answerC = req.body.answerc;
     const answerD = req.body.answerd;
 
+    // const query = `
+    //   INSERT INTO quizzes (user_id, name, created_at,url, category, listed)
+    //   VALUES ($1, $2, $3, $4, $5, $6);
+    // `
     const query = `
-      INSERT INTO quizzes (user_id, name, created_at,url, category, listed)
-      VALUES ($1, $2, $3, $4, $5, $6);
-    `
-    const values = [userId, name, 'now()', 'http://localhost:8080/quiz/beq9n', category, 'true']
-
-    const questionQuery = `
+    WITH ins1 AS (
+      INSERT INTO quizzes(user_id, name, url, category, listed)
+      VALUES ($1, $2, $3, $4, $5)
+      RETURNING id AS quiz_id
+      )
+   , ins2 AS (
       INSERT INTO questions (quiz_id, text)
-      VALUES ($1, $2);
-    `
-    const questionValues = [5, question];
-
-    const answerAQuery = `
+      VALUES ((SELECT quiz_id FROM ins1), $6)
+      RETURNING id AS question_id
+      )
       INSERT INTO answers (question_id, text, correct)
-      VALUES ($1, $2, $3);
+      VALUES ( (select question_id from ins2), $7, $8),
+      ( (select question_id from ins2), $9, $10),
+      ( (select question_id from ins2), $11, $12),
+      ( (select question_id from ins2), $13, $14);
     `
-    const answerAValues = [6, correct, 'true'];
-
-    const answerBQuery = `
-      INSERT INTO answers (question_id, text, correct)
-      VALUES ($1, $2, $3);
-    `
-<<<<<<< HEAD
-=======
-    const answerBValues = [6, answerB, 'false'];
-    const answerCQuery = `
-      INSERT INTO answers (question_id, text, correct)
-      VALUES ($1, $2, $3);
-    `
-    const answerCValues = [6, answerC, 'false'];
-    const answerDQuery = `
-      INSERT INTO answers (question_id, text, correct)
-      VALUES ($1, $2, $3);
-    `
-    const answerDValues = [6, answerD, 'false'];
-
-
-
-
-    db.query(questionQuery, questionValues);
-    db.query(answerAQuery, answerAValues);
-    db.query(answerBQuery, answerBValues);
-    db.query(answerCQuery, answerCValues);
-    db.query(answerDQuery, answerDValues);
+      // update url to be dynamic
+    const values = [userId, name, 'http://localhost:8080/quiz/beq9n', category, 'true', question, correct, 'true', answerB, 'false',  answerC, 'false', answerD, 'false'];
 
     db.query(query, values)
       .then(() => {
         res.redirect('/users');
       })
->>>>>>> 9e16a1bfaca62b0852830ea93b4b63977d6707f2
   })
 
   return router;
