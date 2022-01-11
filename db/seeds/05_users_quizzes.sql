@@ -1,5 +1,6 @@
-INSERT INTO users_quizzes (quiz_id, user_id, correct, url) VALUES (1,1,1,'http://site1.com'),
-(2,2,0,'http://site2.com'),
-(3,3,1,'http://site3.com'),
-(4,4,1,'http://site4.com'),
-(5,5,0,'http://site5.com');
+INSERT INTO users_quizzes (quiz_id, user_id, correct, url)
+VALUES (1,1,3,'http://localhost:8080/results/0snro'),
+(2,2,2,'http://localhost:8080/results/ago72'),
+(3,3,0,'http://localhost:8080/results/5czxa'),
+(4,4,5,'http://localhost:8080/results/awoh1'),
+(5,5,3,'http://localhost:8080/results/r6sg2');
