@@ -23,7 +23,7 @@ module.exports = (db) => {
       INSERT INTO quizzes (user_id, name, created_at,url, category, listed)
       VALUES ($1, $2, $3, $4, $5, $6);
     `
-    const values = [userId, name, 'now()', 'http://localhost:8080/quiz/beq9n',category, 'true' ]
+    const values = [userId, name, 'now()', 'http://localhost:8080/quiz/beq9n', category, 'true']
 
     const questionQuery = `
       INSERT INTO questions (quiz_id, text)
@@ -63,9 +63,9 @@ module.exports = (db) => {
     db.query(answerDQuery, answerDValues);
 
     db.query(query, values)
-    .then(()=>{
-      res.redirect('/users');
-    })
+      .then(() => {
+        res.redirect('/users');
+      })
   })
 
   return router;

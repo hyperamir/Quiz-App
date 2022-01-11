@@ -13,6 +13,7 @@ module.exports = (db) => {
     console.log(req.session.user_id)
     db.query(`SELECT * FROM quizzes WHERE listed = true;`)
       .then(data => {
+        console.log(data.rows)
         res.json(data.rows);
       })
       .catch(err => {
