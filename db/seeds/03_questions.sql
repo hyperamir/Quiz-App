@@ -10,9 +10,9 @@ VALUES (1, 'What sport has the most fans in the world?'),
 (2, 'Which of the following equations has a larger outcome? 7 x 3 + 2 or 7 x ( 3 + 2)'),
 (2, 'What is the answer of (8/(2²)) x 1/2'),
 (3, 'Stop! I couldda dropped my ...'),
-(3,'Road work ahead?...')
-(3, "Sleep? I don't know about sleep ..." )
-(3,'When will you learn...' )
+(3, 'Road work ahead?...'),
+(3, 'Sleep? I dont know about sleep ...' ),
+(3, 'When will you learn...' ),
 (4, 'What is the captial of Canada?'),
 (4, 'What is the captial of Colombia?'),
 (4, 'What is the captial of the country with the largest population?'),
@@ -21,4 +21,4 @@ VALUES (1, 'What sport has the most fans in the world?'),
 (5, 'Which of the following are not shades of red?'),
 (5, 'Which country does not have Spanish as an official language?'),
 (5, 'Which of these birds can fly?'),
-(5, "Which countries capital does not have the same name as it's country?");
+(5, 'Which countries capital does not have the same name as its country?');
