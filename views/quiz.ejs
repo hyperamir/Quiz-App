@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <%- include('partials/_header') %>
+
+<h2><%= result[0].quiz_name %></h2>
+
+<form action="/create" method="POST">
+  <label for="fname">Question</label><br><br>
+  <!-- <input type="text" id="quiz" name="quiz" value=" <%= result[0].question %>"><br><br> -->
+  <label for="question1"><%= result[0].question %></label><br>
+
+  <input type="radio" id="option1" name="option1">
+  <label for="fname"><%= result[0].answer %></label><br>
+  <input type="radio" id="option2" name="option2">
+  <label for="css"><%= result[1].answer %></label><br>
+  <input type="radio" id="option3" name="option3">
+  <label for="javascript"><%= result[2].answer %></label><br>
+  <input type="radio" id="option4" name="option4">
+  <label for="javascript"><%= result[3].answer %></label><br><br>
+
+
+
+
+  <input type="submit" value="Submit">
+</form>
+
+
+
+</body>
+</html>
