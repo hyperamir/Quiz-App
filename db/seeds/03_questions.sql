@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-INSERT INTO questions (quiz_id, text) VALUES (1, 'What sport has the most fans in the world?'),
-(2, 'Whats the answer of 4 * 6 + 8 / 4 ?'),
-(3, 'Formula for calculation area of triangle?'),
-(4, 'Captial of Canada?'),
-(5, 'Best actor in the world at 2020?');
-=======
 INSERT INTO questions (quiz_id, text)
 VALUES (1, 'What sport has the most fans in the world?'),
 (1, 'What sport was not in the 2020 olympics?'),
@@ -29,4 +22,3 @@ VALUES (1, 'What sport has the most fans in the world?'),
 (5, 'Which country does not have Spanish as an official language?'),
 (5, 'Which of these birds can fly?'),
 (5, 'Which countries capital does not have the same name as its country?');
->>>>>>> 043d024f17247496860aaefc6057357be885fd9e

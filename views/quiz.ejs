@@ -3,26 +3,27 @@
 <body>
   <%- include('partials/_header') %>
 
-<h2><%= result[0].quiz_name %></h2>
+
+<h2> list of Quizzes </h2>
 
 <form action="/create" method="POST">
-  <label for="fname">Question</label><br><br>
-  <!-- <input type="text" id="quiz" name="quiz" value=" <%= result[0].question %>"><br><br> -->
-  <label for="question1"><%= result[0].question %></label><br>
+  <label for="fname">Quiz 1</label><br>
+  <label for="quiz1"><a href="http://localhost:8080/firstquiz"><%= results[0].quiz_name %></a></label><br><br>
 
-  <input type="radio" id="option1" name="option1">
-  <label for="fname"><%= result[0].answer %></label><br>
-  <input type="radio" id="option2" name="option2">
-  <label for="css"><%= result[1].answer %></label><br>
-  <input type="radio" id="option3" name="option3">
-  <label for="javascript"><%= result[2].answer %></label><br>
-  <input type="radio" id="option4" name="option4">
-  <label for="javascript"><%= result[3].answer %></label><br><br>
+  <label for="fname">Quiz 2</label><br>
+  <label for="quiz2"><a href="http://localhost:8080/secondquiz"><%= results[1].quiz_name %></a></label><br><br>
+
+  <label for="fname">Quiz 3</label><br>
+  <label for="quiz3"><a href="http://localhost:8080/thirdquiz"><%= results[2].quiz_name %></a></label><br><br>
+
+  <label for="fname">Quiz 4</label><br>
+  <label for="quiz4"><a href="http://localhost:8080/fourthquiz"><%= results[3].quiz_name %></a></label><br><br>
+
+  <label for="fname">Quiz 5</label><br>
+  <label for="quiz5"><a href="http://localhost:8080/fifthquiz"><%= results[4].quiz_name %></a></label><br><br>
 
 
 
-
-  <input type="submit" value="Submit">
 </form>
 
 
