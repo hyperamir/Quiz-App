@@ -1,4 +1,4 @@
-INSERT INTO answers (question_id, text, correct) VALUES (1, 'soccer', true),
+INSERT INTO answers (question_id, text, correct) VALUES (1, 'Soccer', true),
 (1, 'Basketball', false),
 (1, 'Baseball', false),
 (1, 'Hockey', false),
