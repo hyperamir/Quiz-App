@@ -29,7 +29,7 @@ module.exports = (db) => {
     const userId = req.params.id;
     req.session.user_id = userId;
 
-    res.redirect('/users');
+    res.redirect('/create');
   });
 
   return router;

@@ -13,7 +13,7 @@ module.exports = (db) => {
     // db.query(`SELECT questions.text AS question, answers.text AS answer
     // FROM questions JOIN answers ON questions.id = question_id
     // WHERE user_id = 1`)
-    fetchQuestion(db, 1)
+    fetchQuestion(db, 4)
       .then(data => {
         console.log(data)
         res.json(data);
