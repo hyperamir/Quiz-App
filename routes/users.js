@@ -25,8 +25,8 @@ module.exports = (db) => {
   });
 
   router.get('/login/:id', (req, res) => {
-    // cookie-session middleware
     const userId = req.params.id;
+    console.log(userId)
     req.session.user_id = userId;
 
     res.redirect('/create');
