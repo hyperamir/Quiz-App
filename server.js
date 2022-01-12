@@ -45,6 +45,7 @@ app.use(express.static("public"));
 const usersRoutes = require("./routes/users");
 
 const createRoutes = require("./routes/create");
+const mineRoutes = require("./routes/mine");
 const quizRoutes = require("./routes/widgets");
 const firstQuizRoutes = require("./routes/firstquiz");
 const secondQuizRoutes = require("./routes/secondquiz");
@@ -64,6 +65,8 @@ app.use("/secondquiz", secondQuizRoutes(db));
 app.use("/thirdquiz", thirdQuizRoutes(db));
 app.use("/fourthquiz", fourthQuizRoutes(db));
 app.use("/fifthquiz", fifthQuizRoutes(db));
+app.use("/mine", mineRoutes(db));
+
 // Note: mount other resources here, using the same pattern above
 
 // Home page
