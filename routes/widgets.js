@@ -10,12 +10,12 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    db.query(`SELECT upper(quizzes.name) as quiz_name
+    db.query(`SELECT quizzes.id, upper(quizzes.name) as quiz_name, url
     FROM quizzes
     `)
       .then(data => {
         console.log(data.rows)
-        results = data.rows;  //
+        results = data.rows;
         templateVars = { results } //
         res.render('quiz.ejs', templateVars); //
         //res.json(data.rows[0]);
