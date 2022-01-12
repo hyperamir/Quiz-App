@@ -1,38 +1,43 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  </head>
 <body>
   <%- include('partials/_header') %>
-<h2>create quiz</h2>
+    <h2>create quiz</h2>
+  <div id="form">
+    <form action="/create/questions" method="POST">
+      <label for="fname">quiz name:</label><br>
+      <input type="text" id="quiz" name="quiz"><br>
+      <label for="lname">category:</label><br>
+      <input type="text" id="category" name="category"><br><br>
+      <% for (let i = 1; i< 6; i++) { %>
+        <br><br>
+        <div id="q<%=i%>">
+          <label for="fname">question<%=i%>:</label><br>
+          <input type="text" id="question" name="question<%=i%>"><br>
 
-<form action="/create" method="POST">
-  <label for="fname">quiz name:</label><br>
-  <input type="text" id="quiz" name="quiz"><br>
-  <label for="lname">category:</label><br>
-  <input type="text" id="category" name="category"><br><br>
+          <label for="fname">correct option:</label><br>
+          <input type="text" id="answera" name="correct<%=i%>"><br>
 
-  <label for="fname">question:</label><br>
-  <input type="text" id="question" name="question"><br>
+          <label for="fname">option 2:</label><br>
+          <input type="text" id="answerb" name="answerb<%=i%>"><br>
 
-  <label for="fname">correct option:</label><br>
-  <input type="text" id="answera" name="correct"><br>
+          <label for="fname">option 3:</label><br>
+          <input type="text" id="answerc" name="answerc<%=i%>"><br>
 
-  <label for="fname">option 2:</label><br>
-  <input type="text" id="answerb" name="answerb"><br>
+          <label for="fname">option 4:</label><br>
+          <input type="text" id="answerd" name="answerd<%=i%>"><br>
+        </div>
+        <br><br>
+        <% } %>
 
-  <label for="fname">option 3:</label><br>
-  <input type="text" id="answerc" name="answerc"><br>
-
-  <label for="fname">option 4:</label><br>
-  <input type="text" id="answerd" name="answerd"><br>
-
-
-  <input type="submit" value="Submit">
-</form>
-
+      <input type="submit" value="Submit">
+    </form>
+  </div>
 
 
 </body>
+
 </html>
-
-
-<!-- (user_id, name, created_at,url, category, listed)  -->
