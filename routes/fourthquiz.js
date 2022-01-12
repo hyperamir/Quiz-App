@@ -10,10 +10,11 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    db.query(`SELECT questions.text AS question, answers.text as answer
+    db.query(`SELECT questions.text AS question, answers.text as answer, quizzes.id AS quiz_id
     FROM questions
     JOIN answers ON questions.id = question_id
-    WHERE questions.id BETWEEN $1 AND $2` , [15, 19])
+    JOIN quizzes ON quizzes.id = quiz_id
+    WHERE quizzes.id = quiz_id`)
       .then(data => {
         console.log(data.rows)
         results = data.rows;  //

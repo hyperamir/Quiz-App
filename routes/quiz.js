@@ -26,6 +26,27 @@ module.exports = (db) => {
 
   });
 
+
+
+  router.get("/:id", (req, res) => {
+    // db.query(`SELECT questions.text AS question, answers.text AS answer
+    // FROM questions JOIN answers ON questions.id = question_id
+    // WHERE user_id = 1`)
+
+    quiz_id = req.params.id;
+    fetchQuestion(db, 4)
+      .then(data => {
+        console.log(data)
+        res.json(data);
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+
+  });
+
   return router;
 };
 
