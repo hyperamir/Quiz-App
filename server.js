@@ -47,11 +47,7 @@ const usersRoutes = require("./routes/users");
 const createRoutes = require("./routes/create");
 const mineRoutes = require("./routes/myquizzes");
 const quizRoutes = require("./routes/widgets");
-const firstQuizRoutes = require("./routes/firstquiz");
-const secondQuizRoutes = require("./routes/secondquiz");
-const thirdQuizRoutes = require("./routes/thirdquiz");
-const fourthQuizRoutes = require("./routes/fourthquiz");
-const fifthQuizRoutes = require("./routes/fifthquiz");
+const takeQuizRoutes = require("./routes/take");
 
 
 //const quizRoutes = require("./routes/quiz");
@@ -61,11 +57,7 @@ const fifthQuizRoutes = require("./routes/fifthquiz");
 app.use("/users", usersRoutes(db));
 app.use("/quiz", quizRoutes(db));
 app.use("/create", createRoutes(db));
-app.use("/firstquiz", firstQuizRoutes(db));
-app.use("/secondquiz", secondQuizRoutes(db));
-app.use("/thirdquiz", thirdQuizRoutes(db));
-app.use("/fourthquiz", fourthQuizRoutes(db));
-app.use("/fifthquiz", fifthQuizRoutes(db));
+app.use("/take", takeQuizRoutes(db));
 app.use("/myquizzes", mineRoutes(db));
 
 // Note: mount other resources here, using the same pattern above
@@ -75,7 +67,7 @@ app.use("/myquizzes", mineRoutes(db));
 // Separate them into separate routes files (see above).
 
 app.get("/", (req, res) => {
-  res.render("index")
+  res.render("index");
 });
 
 app.listen(PORT, () => {

@@ -34,9 +34,9 @@ module.exports = (db) => {
                 console.log(data.rows);
                 const results = data.rows;  //
                 const templateVars = { results };//
-                res.render('fifthquiz.ejs', templateVars); //
+                res.render('take.ejs', templateVars); //
                 //res.json(data.rows[0]);
-              })
+              });
           });
 
 
