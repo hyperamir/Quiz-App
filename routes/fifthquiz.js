@@ -25,8 +25,9 @@ module.exports = (db) => {
             console.log(firstQuestion, lastQuestion);
 
             console.log(lastQuestion);
-            db.query(`SELECT questions.text AS question, answers.text as answer
+            db.query(`SELECT questions.text AS question, answers.text as answer, quizzes.name AS title
     FROM questions
+    JOIN quizzes ON quizzes.id = quiz_id
     JOIN answers ON questions.id = question_id
     WHERE questions.id BETWEEN $1 AND $2` , [firstQuestion, lastQuestion])
               .then(data => {
