@@ -39,15 +39,15 @@ module.exports = (db) => {
       ( (select question_id from ins2), $9, $10),
       ( (select question_id from ins2), $11, $12),
       ( (select question_id from ins2), $13, $14);
-    `
+    `;
       // update url to be dynamic
     const values = [userId, name, 'http://localhost:8080/quiz/beq9n', category, 'true', question, correct, 'true', answerB, 'false',  answerC, 'false', answerD, 'false'];
 
     db.query(query, values)
       .then(() => {
         res.redirect('/users');
-      })
-  })
+      });
+  });
 
   return router;
 };
