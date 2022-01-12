@@ -6,27 +6,19 @@
 
 <h2> list of Quizzes </h2>
 
+
+
 <form action="/create" method="POST">
-  <label for="fname">Quiz 1</label><br>
-  <label for="quiz1"><a href="http://localhost:8080/firstquiz"><%= results[0].quiz_name %></a></label><br><br>
+  <% for (const result of results) { %>
 
-  <label for="fname">Quiz 2</label><br>
-  <label for="quiz2"><a href="http://localhost:8080/secondquiz"><%= results[1].quiz_name %></a></label><br><br>
+  <label for="fname"><%= result.id %></label><br>
+  <label for="quiz1"><a href="http://localhost:8080/firstquiz"><%= result.quiz_name %></a></label><br><br>
 
-  <label for="fname">Quiz 3</label><br>
-  <label for="quiz3"><a href="http://localhost:8080/thirdquiz"><%= results[2].quiz_name %></a></label><br><br>
-
-  <label for="fname">Quiz 4</label><br>
-  <label for="quiz4"><a href="http://localhost:8080/fourthquiz"><%= results[3].quiz_name %></a></label><br><br>
-
-  <label for="fname">Quiz 5</label><br>
-  <label for="quiz5"><a href="http://localhost:8080/fifthquiz"><%= results[4].quiz_name %></a></label><br><br>
-
-
-
+  <% } %>
 </form>
-
-
 
 </body>
 </html>
+
+
+
