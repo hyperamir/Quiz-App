@@ -88,6 +88,7 @@ module.exports = (db) => {
           results[3].text,
           results[4].text,
         ];
+
         const score = getScore(usersAnswers, correctAnswers);
         console.log('score', score);
 
