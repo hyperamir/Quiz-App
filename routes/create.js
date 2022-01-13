@@ -27,7 +27,7 @@ module.exports = (db) => {
     ];
 
 
-    saveQuiz(db, userId, name, 'http://example.com', category, true)
+    saveQuiz(db, userId, name, category, true)
       .then(quizId => {
         questions.forEach((question, index) => {
           saveQuestion(db, quizId, questions[index])
@@ -46,14 +46,14 @@ module.exports = (db) => {
 };
 
 
-const saveQuiz = function(db, user_id, name, url, category, listed) {
+const saveQuiz = function(db, user_id, name, category, listed) {
   const query = `
-      INSERT INTO quizzes(user_id, name, url, category, listed)
-      VALUES ($1, $2, $3, $4, $5)
+      INSERT INTO quizzes(user_id, name, category, listed)
+      VALUES ($1, $2, $3, $4)
       RETURNING id AS quiz_id
       `;
 
-  return db.query(query, [user_id, name, url, category, listed])
+  return db.query(query, [user_id, name, category, listed])
     .then((result) => {
       return result.rows[0].quiz_id;
     });
