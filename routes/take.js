@@ -36,6 +36,7 @@ module.exports = (db) => {
     ORDER BY questions.id;` , [firstQuestion, lastQuestion])
               .then(data => {
                 const results = data.rows;  //
+                console.log('result is : ', results);
                 //console.log("data rows @ get route", data.rows);
                 const templateVars = { results };//
                 res.render('take.ejs', templateVars); //
