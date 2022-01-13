@@ -25,7 +25,7 @@ module.exports = (db) => {
           .then((data) => {
             // return data.rows[0];
             const lastQuestion = data.rows[0].id;
-            console.log("first and last question",firstQuestion, lastQuestion);
+            //console.log("first and last question",firstQuestion, lastQuestion);
 
             db.query(`SELECT questions.text AS question, answers.text as answer, quizzes.name AS title
     FROM questions
@@ -34,7 +34,7 @@ module.exports = (db) => {
     WHERE questions.id BETWEEN $1 AND $2` , [firstQuestion, lastQuestion])
               .then(data => {
                 const results = data.rows;  //
-                console.log("data rows @ get route", data.rows);
+                //console.log("data rows @ get route", data.rows);
                 const templateVars = { results };//
                 res.render('take.ejs', templateVars); //
                 //res.json(data.rows[0]);
@@ -59,10 +59,10 @@ module.exports = (db) => {
     //const quiz_id = req.params.id;
     const quiz_id = req.session.quiz_id;
     const user_id = req.session.user_id;
-    console.log("user",user);
+    //console.log("user",user);
     //console.log('req.body',req.body);
-    console.log('quiz_id', quiz_id);
-    console.log('user_id', user_id);
+    //console.log('quiz_id', quiz_id);
+    //console.log('user_id', user_id);
     const usersAnswers = [
       req.body.q1option,
       req.body.q2option,
