@@ -110,6 +110,12 @@ module.exports = (db) => {
               if (data) {
                 console.log('I already exist');
                 //update route
+                const saveUpdatedAttempt = function() {
+                  db.query(`UPDATE users_quizzes
+                   SET correct = $3
+                   WHERE quiz_id= $1 AND user_id = $2; `, [quiz_id,user_id, score]);
+                };
+                saveUpdatedAttempt(quiz_id,user_id,score);
               } else {
                 console.log('I dont');
                 //create
@@ -124,7 +130,7 @@ module.exports = (db) => {
 
         alreadyExists(quiz_id,user_id);
 
-        res.redirect(`/myquizzes/taken/${user_id}`);
+        res.redirect(`/myquizzes/taken/${user_id}/${quiz_id}`);
 
 
       })
