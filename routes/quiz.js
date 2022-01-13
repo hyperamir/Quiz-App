@@ -6,87 +6,60 @@
  */
 
 const express = require('express');
-const router = express.Router();
+const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    // db.query(`SELECT questions.text AS question, answers.text AS answer
-    // FROM questions JOIN answers ON questions.id = question_id
-    // WHERE user_id = 1`)
-    fetchQuestion(db, 4)
+    db.query(`SELECT quizzes.id, upper(quizzes.name) as quiz_name
+    FROM quizzes
+    `)
       .then(data => {
-        console.log(data)
-        res.json(data);
+        console.log(data.rows)
+        results = data.rows;
+        templateVars = { results } //
+        res.render('quiz.ejs', templateVars); //
+        //res.json(data.rows[0]);
       })
       .catch(err => {
         res
           .status(500)
           .json({ error: err.message });
       });
-
   });
 
 
 
-  router.get("/:id", (req, res) => {
-    // db.query(`SELECT questions.text AS question, answers.text AS answer
-    // FROM questions JOIN answers ON questions.id = question_id
-    // WHERE user_id = 1`)
+  // router.get('/login/:id', (req, res) => {
+  //   const userId = req.params.id;
+  //   console.log(userId)
+  //   req.session.user_id = userId;
 
-    quiz_id = req.params.id;
-    fetchQuestion(db, 4)
-      .then(data => {
-        console.log(data)
-        res.json(data);
-      })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
-      });
+  //   res.redirect('/myquizzes');
+  // });
 
-  });
+
+  // router.get("/myquizzes", (req, res) => {
+  //   const userId = req.params.id;
+
+  //   db.query(`SELECT * FROM quizzes WHERE user_id = $1
+  //   `, [userId])
+  //     .then(data => {
+  //       console.log(userId)
+  //       console.log(data.rows)
+  //       results = data.rows;
+  //       templateVars = { results } //
+  //       res.render('quiz.ejs', templateVars); //
+  //       //res.json(data.rows[0]);
+  //     })
+  //     .catch(err => {
+  //       res
+  //         .status(500)
+  //         .json({ error: err.message });
+  //     });
+  // });
+
 
   return router;
 };
 
-const fetchQuestion = function (db, quizId) {
-  const query = `
-  SELECT questions.text, id FROM questions
-  WHERE quiz_id = $1;
-  `
-  return db.query(query, [quizId])
-    .then((result) => {
-      console.log(result.rows)
-      return new Promise((resolve, reject) => {
-        const promises = [];
-        const questions = [];
-        result.rows.map((question) => {
-          const p = fetchAnswers(db, question.id);
-          promises.push(p);
 
-          p.then((options) => {
-            questions.push({
-              question: question.text,
-              answers: options
-            })
-          })
-
-        })
-        Promise.all(promises).then(() => {
-          resolve(questions);
-        })
-      })
-    });
-}
-
-const fetchAnswers = function (db, questionId) {
-  const query = `
-  SELECT answers.text FROM answers
-  WHERE question_id = $1;
-  `
-  return db.query(query, [questionId])
-    .then((result) => {
-      return result.rows;
-    });
-}

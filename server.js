@@ -42,12 +42,11 @@ app.use(express.static("public"));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
-const usersRoutes = require("./routes/users");
 
 const createRoutes = require("./routes/create");
 const mineRoutes = require("./routes/myquizzes");
 const myTakenRoutes = require("./routes/taken");
-const quizRoutes = require("./routes/widgets");
+const quizRoutes = require("./routes/quiz");
 const takeQuizRoutes = require("./routes/take");
 
 
@@ -55,7 +54,7 @@ const takeQuizRoutes = require("./routes/take");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
-app.use("/users", usersRoutes(db));
+
 app.use("/quiz", quizRoutes(db));
 app.use("/create", createRoutes(db));
 app.use("/take", takeQuizRoutes(db));
@@ -71,6 +70,13 @@ app.use("/taken", myTakenRoutes(db));
 app.get("/", (req, res) => {
   res.redirect('/quiz');
   //res.render("index");
+});
+
+app.get('/login/:id', (req, res) => {
+  const userId = req.params.id;
+  req.session.user_id = userId;
+
+  res.redirect('/quiz');
 });
 
 app.listen(PORT, () => {

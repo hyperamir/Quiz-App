@@ -1,83 +1,146 @@
 <!DOCTYPE html>
 <html>
+
+<head>
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+</head>
+
 <body>
   <%- include('partials/_header') %>
 
-<h2><%= results[0].title %> </h2>
+    <h2>
+      <%= results[0].title %>
+    </h2>
 
-<form action="/take/:id" method="POST">
-  <label for="fname">Question 1</label><br><br>
-  <label for="question1"><%= results[0].question %></label><br>
+    <form action="/take/:id" method="POST">
+      <label for="fname">Question 1</label><br><br>
+      <label for="question1">
+        <%= results[0].question %>
+      </label><br>
 
-  <input value = "<%= results[0].answer %>" type="radio" id="option1" name="q1option">
-  <label for="fname"><%= results[0].answer %></label><br>
-  <input value = "<%= results[1].answer %>" type="radio" id="option2" name="q1option">
-  <label for="css"><%= results[1].answer %></label><br>
-  <input value = "<%= results[2].answer %>" type="radio" id="option3" name="q1option">
-  <label for="javascript"><%= results[2].answer %></label><br>
-  <input value = "<%= results[3].answer %>" type="radio" id="option4" name="q1option">
-  <label for="javascript"><%= results[3].answer %></label><br><br>
-
-
-
-  <label for="fname">Question 2</label><br><br>
-  <label for="question2"><%= results[4].question %></label><br>
-
-  <input value = "<%= results[4].answer %>" type="radio" id="option1" name="q2option">
-  <label for="fname"><%= results[4].answer %></label><br>
-  <input value = "<%= results[5].answer %>" type="radio" id="option2" name="q2option">
-  <label for="css"><%= results[5].answer %></label><br>
-  <input value = "<%= results[6].answer %>" type="radio" id="option3" name="q2option">
-  <label for="javascript"><%= results[6].answer %></label><br>
-  <input value = "<%= results[7].answer %>" type="radio" id="option4" name="q2option">
-  <label for="javascript"><%= results[7].answer %></label><br><br>
+      <input value="<%= results[0].answer %>" type="radio" id="option1" name="q1option">
+      <label for="fname">
+        <%= results[0].answer %>
+      </label><br>
+      <input value="<%= results[1].answer %>" type="radio" id="option2" name="q1option">
+      <label for="css">
+        <%= results[1].answer %>
+      </label><br>
+      <input value="<%= results[2].answer %>" type="radio" id="option3" name="q1option">
+      <label for="javascript">
+        <%= results[2].answer %>
+      </label><br>
+      <input value="<%= results[3].answer %>" type="radio" id="option4" name="q1option">
+      <label for="javascript">
+        <%= results[3].answer %>
+      </label><br><br>
 
 
 
-  <label for="fname">Question 3</label><br><br>
-  <label for="question3"><%= results[8].question %></label><br>
+      <label for="fname">Question 2</label><br><br>
+      <label for="question2">
+        <%= results[4].question %>
+      </label><br>
 
-  <input value = "<%= results[8].answer %>" type="radio" id="option1" name="q3option">
-  <label for="fname"><%= results[8].answer %></label><br>
-  <input value = "<%= results[9].answer %>" type="radio" id="option2" name="q3option">
-  <label for="css"><%= results[9].answer %></label><br>
-  <input value = "<%= results[10].answer %>" type="radio" id="option3" name="q3option">
-  <label for="javascript"><%= results[10].answer %></label><br>
-  <input value = "<%= results[11].answer %>" type="radio" id="option4" name="q3option">
-  <label for="javascript"><%= results[11].answer %></label><br><br>
-
-
-  <label for="fname">Question 4</label><br><br>
-  <label for="question4"><%= results[12].question %></label><br>
-
-  <input value = "<%= results[12].answer %>" type="radio" id="option1" name="q4option">
-  <label for="fname"><%= results[12].answer %></label><br>
-  <input value = "<%=results[13].answer%>" type="radio" id="option2" name="q4option">
-  <label for="css"><%= results[13].answer %></label><br>
-  <input value = "<%=results[14].answer%>" type="radio" id="option3" name="q4option">
-  <label for="javascript"><%= results[14].answer %></label><br>
-  <input value = "<%=results[15].answer%>" type="radio" id="option4" name="q4option">
-  <label for="javascript"><%= results[15].answer %></label><br><br>
-
-  <label for="fname">Question 5</label><br><br>
-  <label for="question5"><%= results[16].question %></label><br>
-
-  <input value = "<%=results[16].answer%>" type="radio" id="option1" name="q5option">
-  <label for="fname"><%= results[16].answer %></label><br>
-  <input value = "<%=results[17].answer%>" type="radio" id="option2" name="q5option">
-  <label for="css"><%= results[17].answer %></label><br>
-  <input value = "<%=results[18].answer%>" type="radio" id="option3" name="q5option">
-  <label for="javascript"><%= results[18].answer %></label><br>
-  <input value = "<%=results[19].answer%>" type="radio" id="option4" name="q5option">
-  <label for="javascript"><%= results[19].answer %></label><br><br>
+      <input value="<%= results[4].answer %>" type="radio" id="option1" name="q2option">
+      <label for="fname">
+        <%= results[4].answer %>
+      </label><br>
+      <input value="<%= results[5].answer %>" type="radio" id="option2" name="q2option">
+      <label for="css">
+        <%= results[5].answer %>
+      </label><br>
+      <input value="<%= results[6].answer %>" type="radio" id="option3" name="q2option">
+      <label for="javascript">
+        <%= results[6].answer %>
+      </label><br>
+      <input value="<%= results[7].answer %>" type="radio" id="option4" name="q2option">
+      <label for="javascript">
+        <%= results[7].answer %>
+      </label><br><br>
 
 
 
+      <label for="fname">Question 3</label><br><br>
+      <label for="question3">
+        <%= results[8].question %>
+      </label><br>
 
-  <input type="submit" value="Submit">
-</form>
+      <input value="<%= results[8].answer %>" type="radio" id="option1" name="q3option">
+      <label for="fname">
+        <%= results[8].answer %>
+      </label><br>
+      <input value="<%= results[9].answer %>" type="radio" id="option2" name="q3option">
+      <label for="css">
+        <%= results[9].answer %>
+      </label><br>
+      <input value="<%= results[10].answer %>" type="radio" id="option3" name="q3option">
+      <label for="javascript">
+        <%= results[10].answer %>
+      </label><br>
+      <input value="<%= results[11].answer %>" type="radio" id="option4" name="q3option">
+      <label for="javascript">
+        <%= results[11].answer %>
+      </label><br><br>
+
+
+      <label for="fname">Question 4</label><br><br>
+      <label for="question4">
+        <%= results[12].question %>
+      </label><br>
+
+      <input value="<%= results[12].answer %>" type="radio" id="option1" name="q4option">
+      <label for="fname">
+        <%= results[12].answer %>
+      </label><br>
+      <input value="<%=results[13].answer%>" type="radio" id="option2" name="q4option">
+      <label for="css">
+        <%= results[13].answer %>
+      </label><br>
+      <input value="<%=results[14].answer%>" type="radio" id="option3" name="q4option">
+      <label for="javascript">
+        <%= results[14].answer %>
+      </label><br>
+      <input value="<%=results[15].answer%>" type="radio" id="option4" name="q4option">
+      <label for="javascript">
+        <%= results[15].answer %>
+      </label><br><br>
+
+      <label for="fname">Question 5</label><br><br>
+      <label for="question5">
+        <%= results[16].question %>
+      </label><br>
+
+      <input value="<%=results[16].answer%>" type="radio" id="option1" name="q5option">
+      <label for="fname">
+        <%= results[16].answer %>
+      </label><br>
+      <input value="<%=results[17].answer%>" type="radio" id="option2" name="q5option">
+      <label for="css">
+        <%= results[17].answer %>
+      </label><br>
+      <input value="<%=results[18].answer%>" type="radio" id="option3" name="q5option">
+      <label for="javascript">
+        <%= results[18].answer %>
+      </label><br>
+      <input value="<%=results[19].answer%>" type="radio" id="option4" name="q5option">
+      <label for="javascript">
+        <%= results[19].answer %>
+      </label><br><br>
+
+
+
+
+      <input type="submit" value="Submit">
+    </form>
 
 
 </body>
-</html>
 
+</html>

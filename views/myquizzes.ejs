@@ -1,39 +1,56 @@
 <!DOCTYPE html>
 <html>
+
+<head>
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+</head>
+
 <body>
   <%- include('partials/_header') %>
 
 
-<h2> Quizzes Taken </h2>
+    <h2> Quizzes Taken </h2>
 
 
 
-<form action="/create" method="POST">
+    <form action="/create" method="POST">
 
-  <% for (const result of results) { %>
+      <% for (const result of results) { %>
 
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Quiz ID</th>
-        <th scope="col">User ID</th>
-        <th scope="col">correct</th>
-      </tr>
-    </thead>
-    <tbody>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Quiz ID</th>
+              <th scope="col">User ID</th>
+              <th scope="col">correct</th>
+            </tr>
+          </thead>
+          <tbody>
 
-        <tr>
-          <td><%= result.quiz_id %></td>
-          <td><%= result.user_id %></td>
-          <td><%= result.correct %></td>
-        </tr>
+            <tr>
+              <td>
+                <%= result.quiz_id %>
+              </td>
+              <td>
+                <%= result.user_id %>
+              </td>
+              <td>
+                <%= result.correct %>
+              </td>
+            </tr>
 
-    </tbody>
-  </table>
+          </tbody>
+        </table>
 
-<% } %>
-</form>
+        <% } %>
+    </form>
 
 </body>
-</html>
 
+</html>
