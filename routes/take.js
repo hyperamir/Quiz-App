@@ -31,7 +31,9 @@ module.exports = (db) => {
     FROM questions
     JOIN quizzes ON quizzes.id = quiz_id
     JOIN answers ON questions.id = question_id
-    WHERE questions.id BETWEEN $1 AND $2` , [firstQuestion, lastQuestion])
+    WHERE questions.id BETWEEN $1 AND $2
+    GROUP BY question,answer,title,questions.id
+    ORDER BY questions.id;` , [firstQuestion, lastQuestion])
               .then(data => {
                 const results = data.rows;  //
                 //console.log("data rows @ get route", data.rows);
@@ -76,7 +78,8 @@ module.exports = (db) => {
       JOIN questions ON questions.id = question_id
       JOIN quizzes ON quizzes.id = quiz_id
       WHERE correct = true
-      AND quiz_id = $1;`, [quiz_id])
+      AND quiz_id = $1
+      ORDER BY question_id;`, [quiz_id])
       .then(data => {
         const results = data.rows;  //
         console.log("post results", results);
