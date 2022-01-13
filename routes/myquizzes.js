@@ -18,42 +18,36 @@ module.exports = (db) => {
 
   });
 
-  router.get('/taken/:id', (req, res) => {
-    const userId = req.params.id;
-    db.query(`SELECT * FROM users_quizzes WHERE user_id =  $1`, [userId])
-      .then(data => {
-        console.log(data.rows);
-        results = data.rows;
-        templateVars = { results } //
-        res.render('myquizzes.ejs', templateVars); //
-        //res.json(data.rows);
-      })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
-      });
-  });
-
-  router.get('/taken/:id/:quiz', (req, res) => {
+  router.get("/:id/:quiz", (req, res) => {
     const userId = req.params.id;
     const quizId = req.params.quiz;
 
-    db.query(`SELECT * FROM users_quizzes WHERE user_id =  $1 AND quiz_id = $2`, [userId, quizId])
+    db.query(`SELECT * FROM quizzes WHERE user_id = $1 AND id = $2`, [userId, quizId])
       .then(data => {
         console.log(data.rows);
-        results = data.rows;
-        templateVars = { results } //
-        res.render('myquizzes.ejs', templateVars); //
-        //res.json(data.rows);
+        res.json(data.rows);
       })
       .catch(err => {
         res
           .status(500)
           .json({ error: err.message });
       });
+
   });
 
+  router.post("/:id/:quiz", (req, res) => {
+    const user_id = req.params.id;
+    const quiz_id = req.params.quiz;
+    const listed = req.body.listed;
+
+    const UpdatedListed = function() {
+      db.query(`UPDATE quizzes
+       SET listed = $3
+       WHERE id= $1 AND user_id = $2; `, [quiz_id,user_id, listed]);
+    };
+    UpdatedListed(quiz_id,user_id,listed);
+
+  });
 
   return router;
 };
