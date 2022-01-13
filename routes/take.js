@@ -96,13 +96,33 @@ module.exports = (db) => {
         const score = getScore(usersAnswers, correctAnswers);
         console.log('score', score);
 
-        //where we have access to score so we need to insert here
-        const saveAttempt = function() {
-          db.query(`INSERT INTO users_quizzes (quiz_id, user_id, correct)
-           VALUES ($1,$2,$3)`, [quiz_id,user_id, score]);
+        const alreadyExists = function() {
+          //query users_quizzes
+          // SELECT * FROM users_quizzes WHERE quiz_id = $1 AND user_id = $2, [quiz_id,user_id]
+          //if no attempt then data.rows[0] will be '', which is falsey
+          // if they took it before than data.rows[0] will be truethy
+          db.query(`SELECT * FROM users_quizzes WHERE quiz_id = $1 AND user_id = $2`, [quiz_id,user_id])
+            .then((data) => {
+              console.log("alreadyExists data", data.rows);
+              return data.rows[0];
+            })
+            .then(data => {
+              if (data) {
+                console.log('I already exist');
+                //update route
+              } else {
+                console.log('I dont');
+                //create
+                const saveAttempt = function() {
+                  db.query(`INSERT INTO users_quizzes (quiz_id, user_id, correct)
+                   VALUES ($1,$2,$3)`, [quiz_id,user_id, score]);
+                };
+                saveAttempt(quiz_id,user_id,score);
+              }
+            });
         };
 
-        saveAttempt(quiz_id,user_id,score);
+        alreadyExists(quiz_id,user_id);
 
         res.redirect(`/myquizzes/taken/${user_id}`);
 
@@ -134,3 +154,20 @@ const getScore = function (array1, array2) {
 
 };
 
+
+
+
+// if (alreadyExists) {
+//   saveUpdatedAttempt //U in CRUD
+// } else {
+//   saveAttempt // C in CRUD
+// }
+
+// const alreadyExists = function(quiz_id,user_id) {
+//   //query users_quizzes
+//   // SELECT * FROM users_quizzes WHERE quiz_id = $1 AND user_id = $2, [quiz_id,user_id]
+//   //if no attempt then data.rows[0] will be '', which is falsey
+//   // if they took it before than data.rows[0] will be truethy
+//   const conditional = db.query(`SELECT * FROM users_quizzes WHERE quiz_id = $1 AND user_id = $2`, [quiz_id,user_id]);
+//   return conditional.rows[0];
+// }
