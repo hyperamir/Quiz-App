@@ -47,8 +47,56 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
 
+
   });
 
+  router.post("/:id", (req, res) => {
+
+    // on submit insert the data to the database "users_quizzes"
+
+    const quiz_id = req.params.id;
+    const user_id = req.session.id;
+    console.log(req.body);
+
+    // `INSERT INTO users_quizzes (quiz_id, user_id, correct)
+    // VALUES ($1,$2,$3)`, [quiz_id,user_id,];
+    const correct = function(quiz_id) {
+      //array of users answers
+      //get database answers
+      // look at the true and false in the answers table
+      // for each correct integer++
+      const usersAnswers = [
+        req.body.q1option,
+        req.body.q2option,
+        req.body.q3option,
+        req.body.q4option,
+        req.body.q5option
+      ];
+
+      // need a function that compares users chosen answers with db answers
+      // return a single value, the number of correct answers they have
+      // this function returns the value for users_quizzes.correct
+
+      db.query(`SELECT answers.text FROM answers
+      JOIN questions ON questions.id = question_id
+      JOIN quizzes ON quizzes.id = quiz_id
+      WHERE correct = true
+      AND quiz_id = $1;`, [quiz_id]);
+      // this query returns ALL the correct answers for a given quiz AS A COLUMN
+      //> how do i make this into an array
+
+      const integer = 0;
+      return integer;
+    };
+  });
+
+
   return router;
+
+
+
 };
+
+
+
 
