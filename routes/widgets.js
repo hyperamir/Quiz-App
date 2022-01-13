@@ -10,7 +10,7 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    db.query(`SELECT quizzes.id, upper(quizzes.name) as quiz_name, url
+    db.query(`SELECT quizzes.id, upper(quizzes.name) as quiz_name
     FROM quizzes
     `)
       .then(data => {
