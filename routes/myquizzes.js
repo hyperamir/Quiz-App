@@ -23,7 +23,10 @@ module.exports = (db) => {
     db.query(`SELECT * FROM users_quizzes WHERE user_id =  $1`, [userId])
       .then(data => {
         console.log(data.rows);
-        res.json(data.rows);
+        results = data.rows;
+        templateVars = { results } //
+        res.render('myquizzes.ejs', templateVars); //
+        //res.json(data.rows);
       })
       .catch(err => {
         res
