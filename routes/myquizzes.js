@@ -8,6 +8,12 @@ module.exports = (db) => {
     db.query(`SELECT * FROM quizzes WHERE user_id = $1`, [userId])
       .then(data => {
         console.log(data.rows);
+
+        console.log(data.rows)
+        results = data.rows;
+        templateVars = { results } //
+        res.render('mycreated.ejs', templateVars); //
+
         res.json(data.rows);
       })
       .catch(err => {
@@ -25,7 +31,15 @@ module.exports = (db) => {
     db.query(`SELECT * FROM quizzes WHERE user_id = $1 AND id = $2`, [userId, quizId])
       .then(data => {
         console.log(data.rows);
-        res.json(data.rows);
+
+        console.log(data.rows)
+        results = data.rows;
+        templateVars = { results } //
+        res.render('singlequiz.ejs', templateVars); //
+
+
+       res.json(data.rows);
+
       })
       .catch(err => {
         res

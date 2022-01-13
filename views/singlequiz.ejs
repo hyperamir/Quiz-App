@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <%- include('partials/_header') %>
+
+
+<h2> One of my Quizzes </h2>
+
+
+
+<form action="/create" method="POST">
+  <% for (const result of results) { %>
+
+  <label for="fname"><%= result.name%></label><br>
+
+  <label for="quiz1"><a href="http://localhost:8080/take/<%= result.id %>/<%= result.quiz_name %>"> <%= result.name%> </a></label><br><br>
+
+
+  <% } %>
+</form>
+
+</body>
+</html>
