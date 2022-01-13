@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /*
  * All routes for Users are defined here
  * Since this file is loaded in server.js into api/users,
@@ -10,10 +11,10 @@ const router = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    console.log(req.session.user_id)
+    console.log(req.session.user_id);
     db.query(`SELECT * FROM quizzes WHERE listed = true;`)
       .then(data => {
-        console.log(data.rows)
+        console.log(data.rows);
         res.json(data.rows);
       })
       .catch(err => {
@@ -26,7 +27,7 @@ module.exports = (db) => {
 
   router.get('/login/:id', (req, res) => {
     const userId = req.params.id;
-    console.log(userId)
+    console.log(userId);
     req.session.user_id = userId;
 
     res.redirect('/create');
