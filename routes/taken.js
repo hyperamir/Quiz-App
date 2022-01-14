@@ -3,6 +3,11 @@ const router = express.Router();
 
 module.exports = (db) => {
 
+  router.get("/", (req, res) => {
+    const userId = req.session.user_id;
+    res.redirect(`/taken/${userId}`);
+  });
+
   router.get('/:id', (req, res) => {
     const userId = req.params.id;
 
