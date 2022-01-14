@@ -1,7 +1,7 @@
 QuizApp
 =========
 
-QuizApp is a website where you can take a quiz and write a quiz for the anyone else to take. As the creator of a quiz you also have the ability to hide your quiz for your eyes only. The results of your quizzes are found in the My Results tab! When you complete a quiz, copy the link in the browser and send it to yourfriends to share your results. Try a quiz again and update your results.
+QuizApp is a website where you can take a quiz and write a quiz for the anyone else to take. As the creator of a quiz you also have the ability to hide your quiz for your eyes only. The results of your quizzes are found in the My Results tab! When you complete a quiz, copy the link in the browser and send it to your friends to share your results. Try a quiz again and update your results.
 
 ## Final Product
 
@@ -10,6 +10,9 @@ QuizApp is a website where you can take a quiz and write a quiz for the anyone e
 <img width="655" alt="Screen Shot 2022-01-14 at 12 52 46 PM" src="https://user-images.githubusercontent.com/93690436/149562339-ee65b160-8be7-469f-af10-d6cc3f631653.png">
 
 <img width="1145" alt="Screen Shot 2022-01-14 at 12 53 16 PM" src="https://user-images.githubusercontent.com/93690436/149562530-435223fd-3227-4862-bd38-092b2fee7e9e.png">
+
+<img width="1130" alt="Screen Shot 2022-01-14 at 1 01 33 PM" src="https://user-images.githubusercontent.com/93690436/149563409-e1034fe4-5b91-4f5a-926a-b7f702601261.png">
+
 
 ## Project Setup
 
@@ -46,8 +49,11 @@ The following steps are only for _one_ of the group members to perform.
   - It runs through each of the files, in order, and executes them against the database. 
   - Note: you will lose all newly created (test) data each time this is run, since the schema files will tend to `DROP` the tables and recreate them.
 
+
 ## Dependencies
 
 - Node 10.x or above
 - NPM 5.x or above
 - PG 6.x
+- cookie-session
+- ejs
