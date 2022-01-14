@@ -3,13 +3,14 @@ const router = express.Router();
 
 module.exports = (db) => {
 
-  router.get(':id', (req, res) => {
+  router.get('/:id', (req, res) => {
     const userId = req.params.id;
+
     db.query(`SELECT * FROM users_quizzes WHERE user_id =  $1`, [userId])
       .then(data => {
         console.log(data.rows);
-        results = data.rows;
-        templateVars = { results };
+        const results = data.rows;
+        const templateVars = { results };
         res.render('myquizzes.ejs', templateVars);
         //res.json(data.rows);
       })

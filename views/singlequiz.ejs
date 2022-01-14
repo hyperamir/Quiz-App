@@ -13,19 +13,27 @@
 
 
 
-    <form action="/create" method="POST">
+    <form action= '/myquizzes/:id/:quiz' method="POST">
       <% for (const result of results) { %>
 
         <label for="fname">
           <%= result.name%>
         </label><br>
 
-        <label for="quiz1"><a href="http://localhost:8080/taken/<%= result.user_id%>/<%= result.id %>">
+        <label for="quiz1"><a href="http://localhost:8080/myquizzes/<%= result.user_id%>/<%= result.id %>">
             <%= result.name%>
           </a></label><br><br>
-
-
+          <input value= true type="radio" id="option1" name="listed">
+          <label for="fname">
+          Show my quiz to the world!
+           </label><br>
+          <input value= false type="radio" id="option2" name="listed">
+          <label for="css">
+            For my eyes only
+        </label><br>
         <% } %>
+
+        <input type="submit" value="Submit">
     </form>
 
 </body>

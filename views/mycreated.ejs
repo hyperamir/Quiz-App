@@ -13,14 +13,14 @@
 
 
 
-    <form action="/myquizzes/:id" method="POST">
+    <form action="/create" method="POST">
       <% for (const result of results) { %>
 
         <label for="fname">
           <%= result.name%>
         </label><br>
         <label for="quiz1"><a href="http://localhost:8080/myquizzes/<%= result.user_id %>/<%= result.id %>">
-            <%= result.quiz_name %>
+            <%= result.name %>
           </a></label><br><br>
 
         <% } %>

@@ -11,7 +11,7 @@ const router  = express.Router();
 module.exports = (db) => {
   router.get("/", (req, res) => {
     db.query(`SELECT quizzes.id, upper(quizzes.name) as quiz_name
-    FROM quizzes
+    FROM quizzes WHERE listed = true;
     `)
       .then(data => {
         console.log(data.rows)

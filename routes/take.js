@@ -130,7 +130,7 @@ module.exports = (db) => {
 
         alreadyExists(quiz_id,user_id);
 
-        res.redirect(`/myquizzes/taken/${user_id}/${quiz_id}`);
+        res.redirect(`/taken/${user_id}/${quiz_id}`);
 
 
       })
