@@ -12,18 +12,20 @@
     <h2> My list of Quizzes </h2>
 
 
-
-    <form action="/create" method="POST">
+    <form action= "/myquizzes/:id/:quiz" method="POST">
       <% for (const result of results) { %>
 
         <label for="fname">
           <%= result.name%>
         </label><br>
-        <label for="quiz1"><a href="http://localhost:8080/myquizzes/<%= result.user_id %>/<%= result.id %>">
-            <%= result.name %>
-          </a></label><br><br>
 
+        <label for="quiz1"><a href="http://localhost:8080/myquizzes/<%= result.user_id%>/<%= result.id %>">
+            Change who can view your quiz
+          </a></label><br><br>
+        </label><br>
         <% } %>
+
+
     </form>
 
 </body>

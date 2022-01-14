@@ -11,7 +11,7 @@ module.exports = (db) => {
         //res.json(data.rows);
         const results = data.rows;
         const templateVars = { results };
-        res.render('singlequiz.ejs', templateVars);
+        res.render('mycreated.ejs', templateVars);
       })
       .catch(err => {
         res
