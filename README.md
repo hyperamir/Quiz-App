@@ -7,10 +7,9 @@ QuizApp is a website where you can take a quiz and write a quiz for the anyone e
 
 <img width="1231" alt="Screen Shot 2022-01-14 at 12 51 59 PM" src="https://user-images.githubusercontent.com/93690436/149562402-f2e184d4-33ed-4ce9-ba53-5b220dc40a51.png">
 
-<img width="1145" alt="Screen Shot 2022-01-14 at 12 53 16 PM" src="https://user-images.githubusercontent.com/93690436/149562530-435223fd-3227-4862-bd38-092b2fee7e9e.png">
-
 <img width="655" alt="Screen Shot 2022-01-14 at 12 52 46 PM" src="https://user-images.githubusercontent.com/93690436/149562339-ee65b160-8be7-469f-af10-d6cc3f631653.png">
 
+<img width="1145" alt="Screen Shot 2022-01-14 at 12 53 16 PM" src="https://user-images.githubusercontent.com/93690436/149562530-435223fd-3227-4862-bd38-092b2fee7e9e.png">
 
 ## Project Setup
 
