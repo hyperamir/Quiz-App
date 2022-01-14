@@ -1,5 +1,16 @@
-LHL Node Skeleton
+QuizApp
 =========
+
+QuizApp is a website where you can take a quiz and write a quiz for the anyone else to take. As the creator of a quiz you also have the ability to hide your quiz for your eyes only. The results of your quizzes are found in the My Results tab! When you complete a quiz, copy the link in the browser and send it to yourfriends to share your results. Try a quiz again and update your results.
+
+## Final Product
+
+<img width="1231" alt="Screen Shot 2022-01-14 at 12 51 59 PM" src="https://user-images.githubusercontent.com/93690436/149562402-f2e184d4-33ed-4ce9-ba53-5b220dc40a51.png">
+
+<img width="1145" alt="Screen Shot 2022-01-14 at 12 53 16 PM" src="https://user-images.githubusercontent.com/93690436/149562530-435223fd-3227-4862-bd38-092b2fee7e9e.png">
+
+<img width="655" alt="Screen Shot 2022-01-14 at 12 52 46 PM" src="https://user-images.githubusercontent.com/93690436/149562339-ee65b160-8be7-469f-af10-d6cc3f631653.png">
+
 
 ## Project Setup
 
