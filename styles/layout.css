@@ -1,0 +1,28 @@
+
+
+label:hover {
+  background-color: #DAF7A6;
+  border: solid;
+  border-color: forestgreen;
+  border-radius: 10px;
+  width:100%;
+}
+
+form {
+  padding-left: 30%;
+  padding-right: 30%;
+}
+
+h2 {
+display: flex;
+justify-content: center;
+margin-bottom: 15px;
+}
+
+label {
+  display: flex;
+  margin-bottom: 5px;
+  font-weight: 700;
+  flex-direction: column;
+  padding: 10px;
+}

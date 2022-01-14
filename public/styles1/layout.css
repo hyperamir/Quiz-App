@@ -1,0 +1,19 @@
+label {
+  display: flex;
+  margin-bottom: 5px;
+  font-weight: 700;
+  flex-direction: column;
+  padding: 10px;
+}
+
+label:hover {
+  background-color: #DAF7A6;
+  border: solid;
+  border-color: forestgreen;
+  border-radius: 10px;
+}
+
+form {
+  padding-left: 20%;
+  padding-right: 20%;
+}

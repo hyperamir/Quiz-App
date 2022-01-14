@@ -32,7 +32,6 @@ module.exports = (db) => {
           saveQuestion(db, quizId, questions[index])
             .then(questionId => {
               answers[index].forEach(answer => {
-                console.log(answer,'index:', correct[index]);
                 saveAnswer(db, questionId, answer, correct[index]);
               });
             });
