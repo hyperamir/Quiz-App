@@ -39,8 +39,8 @@ module.exports = (db) => {
     WHERE users_quizzes.user_id = $1 AND quiz_id = $2;`, [userId, quizId])
       .then(data => {
         console.log(data.rows);
-        results = data.rows;
-        templateVars = { results };
+        const results = data.rows;
+        const templateVars = { results };
         res.render('myquizzes.ejs', templateVars);
         //res.json(data.rows);
       })
