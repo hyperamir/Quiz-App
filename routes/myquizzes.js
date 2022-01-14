@@ -7,9 +7,7 @@ module.exports = (db) => {
     const userId = req.params.id;
     db.query(`SELECT * FROM quizzes WHERE user_id = $1`, [userId])
       .then(data => {
-        console.log(data.rows);
 
-        console.log(data.rows)
         results = data.rows;
         templateVars = { results } //
         res.render('mycreated.ejs', templateVars); //
