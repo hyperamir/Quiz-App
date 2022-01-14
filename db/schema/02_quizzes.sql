@@ -7,6 +7,5 @@ CREATE TABLE quizzes (
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   name VARCHAR(255) NOT NULL,
   created_at TIMESTAMP DEFAULT Now(),
-  category VARCHAR(255),
   listed BOOLEAN DEFAULT TRUE
 );

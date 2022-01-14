@@ -10,8 +10,6 @@
     <form action="/create/questions" method="POST">
       <label for="fname">quiz name:</label><br>
       <input type="text" id="quiz" name="quiz"><br>
-      <label for="lname">category:</label><br>
-      <input type="text" id="category" name="category"><br><br>
       <% for (let i = 1; i< 6; i++) { %>
         <br><br>
         <div id="q<%=i%>">

@@ -13,7 +13,6 @@ module.exports = (db) => {
     console.log(userId);
     //console.log(req.body);
     const name = req.body.quiz;
-    const category = req.body.category;
     const questions = [req.body.question1, req.body.question2, req.body.question3, req.body.question4, req.body.question5];
     const correct = [req.body.correct1, req.body.correct2, req.body.correct3, req.body.correct4, req.body.correct5];
     console.log('correct: ', correct);
@@ -27,7 +26,7 @@ module.exports = (db) => {
     ];
 
 
-    saveQuiz(db, userId, name, category, true)
+    saveQuiz(db, userId, name, true)
       .then(quizId => {
         questions.forEach((question, index) => {
           saveQuestion(db, quizId, questions[index])
@@ -46,14 +45,14 @@ module.exports = (db) => {
 };
 
 
-const saveQuiz = function(db, user_id, name, category, listed) {
+const saveQuiz = function(db, user_id, name,listed) {
   const query = `
-      INSERT INTO quizzes(user_id, name, category, listed)
-      VALUES ($1, $2, $3, $4)
+      INSERT INTO quizzes(user_id, name, listed)
+      VALUES ($1, $2, $3)
       RETURNING id AS quiz_id
       `;
 
-  return db.query(query, [user_id, name, category, listed])
+  return db.query(query, [user_id, name, listed])
     .then((result) => {
       return result.rows[0].quiz_id;
     });
