@@ -20,22 +20,18 @@
         <table class="table">
           <thead>
             <tr>
-              <th scope="col">Quiz ID</th>
-              <th scope="col">User ID</th>
-              <th scope="col">correct</th>
+              <th scope="col">Quiz Name</th>
+              <th scope="col">Your Score</th>
             </tr>
           </thead>
           <tbody>
 
             <tr>
               <td>
-                <%= result.quiz_id %>
+                <%= result.name %>
               </td>
               <td>
-                <%= result.user_id %>
-              </td>
-              <td>
-                <%= result.correct %>
+                <%= result.correct %> / 5
               </td>
             </tr>
 
